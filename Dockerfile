@@ -11,6 +11,8 @@ LABEL maintainer="Puckel_"
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM linux
 
+# 
+
 # Airflow
 ARG AIRFLOW_VERSION=1.10.9
 ARG AIRFLOW_USER_HOME=/usr/local/airflow
@@ -77,6 +79,8 @@ COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
+RUN apt-get update -y
+RUN apt-get install -y default-libmysqlclient-dev
 
 EXPOSE 8080 5555 8793
 

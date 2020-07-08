@@ -4,7 +4,8 @@
 # BUILD: docker build --rm -t puckel/docker-airflow .
 # SOURCE: https://github.com/puckel/docker-airflow
 
-FROM tensorflow/tensorflow:2.1.1-gpu
+# FROM tensorflow/tensorflow:2.1.1-gpu
+FROM pytorch/pytorch:1.5.1-cuda10.1-cudnn7-runtime
 LABEL maintainer="Puckel_"
 
 # Never prompt the user for choices on installation/configuration of packages
